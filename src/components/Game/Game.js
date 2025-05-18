@@ -4,10 +4,12 @@ import GuessInput from "../GuessInput";
 import GuessResult from "../GuessResult";
 import WinBanner from "../WinBanner";
 import LooseBanner from "../LooseBanner";
+import Keyboard from "../Keyboard";
 
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import { checkGuess } from "../../game-helpers";
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
@@ -32,10 +34,15 @@ function Game() {
     setGameStatus("running");
   }
 
+  const validatedGuesses = guesses.map((guess) => {
+    return checkGuess(guess, answer);
+  });
+
   return (
     <>
       <GuessResult guesses={guesses} answer={answer} />
       <GuessInput handleAddGuess={handleAddGuess} gameStatus={gameStatus} />
+      <Keyboard validatedGuesses={validatedGuesses} />
       {gameStatus === "won" && (
         <WinBanner count={guesses.length} restart={handleRestart} />
       )}

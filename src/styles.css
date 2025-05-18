@@ -108,6 +108,39 @@ h1 {
 }
 
 /*
+  Keyboard
+*/
+
+.keyboard-rows {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.keyboard-rows .key {
+  width: 32px;
+  height: 32px;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.keyboard-rows .key.correct {
+  background-color: greenyellow;
+}
+
+.keyboard-rows .key.cell.misplaced {
+  background-color: yellow;
+}
+
+.keyboard-rows .key.cell.incorrect {
+  background-color: dimgrey;
+}
+
+/*
   Round the corners for the 4 cells at the very corners of
   the game board
 */
