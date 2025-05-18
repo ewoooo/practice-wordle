@@ -129,15 +129,18 @@ h1 {
 }
 
 .keyboard-rows .key.correct {
-  background-color: greenyellow;
+  background-color: var(--color-success);
+  color: white;
 }
 
-.keyboard-rows .key.cell.misplaced {
-  background-color: yellow;
+.keyboard-rows .key.misplaced {
+  background-color: var(--color-warning);
+  color: white;
 }
 
-.keyboard-rows .key.cell.incorrect {
+.keyboard-rows .key.incorrect {
   background-color: dimgrey;
+  color: white;
 }
 
 /*
